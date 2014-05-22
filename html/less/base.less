@@ -1,0 +1,70 @@
+@import 'normalize.less';
+
+/* Neutralize styling: 
+   Elements we want to clean out entirely: */
+html, body, form, fieldset {
+        margin: 0;
+        padding: 0;
+}
+
+/* Neutralize styling: 
+   Elements with a vertical margin: */
+h1, h2, h3, h4, h5, h6, p, pre,
+blockquote, ul, ol, dl, address {
+        margin: 0;
+        padding: 0;
+}
+
+/* Apply left margin:
+   Only to the few elements that need it: */
+li, dd, blockquote {
+        margin-left: 1.5em;
+}
+
+/**
+ * default smooster related css.
+ */
+
+img { vertical-align: bottom; }
+
+img[align=left] {
+    margin: .30em 1em 0 0;
+}
+img[align=right] {
+    margin: .30em 0 0 1em;
+}
+
+input, button {
+    cursor: pointer;
+}
+
+ul {
+    li { min-height: 1em; }
+}
+
+p ul, p ol { font-size: inherit;}
+
+
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix:before, .clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.pull-right {
+    float: right;
+    margin: .30em 1em 0 0;
+    clear: right;
+}
+.pull-left {
+    float: left;
+    margin: .30em 1em 0 0;
+    clear: left;
+}
