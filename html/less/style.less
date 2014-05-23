@@ -1,7 +1,10 @@
 @import 'base.less';
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
 
 /* typo */
-body, input, select, textarea, button { font-family: Arial, sans-serif; font-weight: 400; color: #000000; }
+
+
+body, input, select, textarea, button { font-family: 'PT Sans Narrow', sans-serif; font-weight: 400; color: #333333; }
 abbr, acronym, dfn { font-variant: normal; border-bottom: 1px solid #E5E5E5; cursor: help; }
 
 h1 {
@@ -34,7 +37,7 @@ h6 {
     margin-bottom: 2.33em;
 }
 
-a { text-decoration: none; }
+a { text-decoration: none; color: #336699; }
 hr { }
 abbr { }
 strong, b { font-weight: bold; }
@@ -49,24 +52,80 @@ img[align=left] {
 img[align=right] {
 
 }
+.text-blue {
+  color: #336699;
+}
+.text-white {
+  color: #fbfafc;
+}
+
+/* Mixins */
+.box-sizing(@type) {
+  -moz-box-sizing: @type;
+  -webkit-box-sizing: @type;
+  box-sizing: @type;
+}
 
 /* Layout */
 header, main, footer { display: block; }
-#wrapper { max-width: 960px; min-width: 960px; margin-right: auto; margin-left: auto; margin-bottom: 2em; background-color: #ffffff;}
+#wrapper { width: 100%; min-width: 960px; background-color: #fbfafc;}
 
 header {
-	#logo {
+  position: relative;
+  z-index: 2;
+  height: 50px;
+  border-bottom: 2px solid #336699;
+  background-color: #fbfafc;
+  .box-sizing(border-box);
+  padding: 15px 34px 0px 34px;
 
+	#logo {
+    float: left;
+    text-transform: uppercase;
+    #suffix {
+      text-transform: lowercase;
+    }
 	}
-	#navi {
+	nav {
+    float: right;
+    ul {
+      list-style-type: none;
+      li {
+        display: inline-block;
+      }
+    }
 	}
 }
 
 
-#main {
-	#content {
+main {
+  padding-top: 430px;
+	section {
+    text-align: center;
+    height: 430px;
+    position: fixed;
+    top: 0px;
+    z-index: 0;
+    width: 100%;
+    .box-sizing(border-box);
+    .text-white();
+    #full_width_background {
+      width: 100%;
+      height: 430px;
+      padding-top: 160px;
+
+    }
+    a {
+      .text-white();
+    }
 
 	}
+  article {
+    min-height: 800px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+  }
 }
 
 #footer {
