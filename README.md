@@ -21,6 +21,11 @@ Images used, are my personal ones, please do not use, copy, modify, merge, publi
 * atom.io editor
 * github osx client
 
+##Todos
+* Add some small animations
+* Make it responsive
+* Add a layout for blog articles
+
 
 ##Notes
 * @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
