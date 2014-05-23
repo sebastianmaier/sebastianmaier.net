@@ -1,15 +1,20 @@
 @import 'base.less';
+@import 'button.less';
 @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
 
 /* typo */
 
 
-body, input, select, textarea, button { font-family: 'PT Sans Narrow', sans-serif; font-weight: 400; color: #333333; }
+body, input, select, textarea, button { font-family: 'PT Sans Narrow', sans-serif; font-weight: 400; color: #333333; letter-spacing: 0.1em;}
 abbr, acronym, dfn { font-variant: normal; border-bottom: 1px solid #E5E5E5; cursor: help; }
 
 h1 {
     font-size: 2em;
 	margin-bottom: 0.67em;
+}
+
+h1 + hr {
+  margin-top: -0.67em;
 }
 
 h2 {
@@ -38,7 +43,14 @@ h6 {
 }
 
 a { text-decoration: none; color: #336699; }
-hr { }
+hr {
+  border: 0;
+  height: 3px;
+  .background-gradient(left, rgba(251,250,252,0), rgba(251,250,252,1), rgba(251,250,252,0));
+  width: 35%;
+  margin-bottom: 1em;
+ }
+
 abbr { }
 strong, b { font-weight: bold; }
 small { font-size: 82%; line-height: 130%; }
@@ -58,12 +70,21 @@ img[align=right] {
 .text-white {
   color: #fbfafc;
 }
+.lead {
+  font-size: 1.2em;
+}
 
 /* Mixins */
 .box-sizing(@type) {
   -moz-box-sizing: @type;
   -webkit-box-sizing: @type;
   box-sizing: @type;
+}
+.background-gradient(@direction, @color1, @color2, @color3) {
+  background-image: -webkit-linear-gradient(@direction, @color1, @color2, @color3);
+  background-image: -moz-linear-gradient(@direction, @color1, @color2, @color3);
+  background-image: -ms-linear-gradient(@direction, @color1, @color2, @color3);
+  background-image: -o-linear-gradient(@direction, @color1, @color2, @color3);
 }
 
 /* Layout */
@@ -115,16 +136,43 @@ main {
       padding-top: 160px;
 
     }
+    h1 {
+      font-size: 2.938em;
+      text-transform: uppercase;
+      font-weight: normal;
+      letter-spacing: 0.1em;
+    }
     a {
       .text-white();
     }
+    aside {
+      display: none; //just for now, add this later.
+    }
+    .lead  {
+      margin-bottom: 60px;
+    }
+    .btn {
+      font-size: 1.3em;
+      text-transform: uppercase;
+      padding: 6px 35px;
+      border-radius: 4px;
+    }
 
 	}
-  article {
-    min-height: 800px;
+  #content-wrapper {
+    background-color: #fbfafc;
     position: relative;
     z-index: 1;
-    background-color: white;
+    width: 100%;
+    padding-top: 20px;
+
+    article {
+      width: 625px;
+      margin-left: auto;
+      margin-right: auto;
+      min-height: 800px;
+
+    }
   }
 }
 

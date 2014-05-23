@@ -419,6 +419,44 @@ p ol {
   margin: .30em 1em 0 0;
   clear: left;
 }
+/*! button.css v0.1.1 | MIT License | smooster.com */
+.btn {
+  display: inline-block;
+  color: #fbfafc;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 12px 17px;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid #fbfafc;
+  border-radius: 6px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.btn-outlined {
+  color: #00aaa7;
+  background-color: transparent;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active {
+  color: #ffffff;
+}
+.btn-outlined:hover,
+.btn-outlined:focus,
+.btn-outlined:active,
+.btn-outlined.active {
+  color: #00aaa7;
+}
 /* typo */
 body,
 input,
@@ -428,6 +466,7 @@ button {
   font-family: 'PT Sans Narrow', sans-serif;
   font-weight: 400;
   color: #333333;
+  letter-spacing: 0.1em;
 }
 abbr,
 acronym,
@@ -439,6 +478,9 @@ dfn {
 h1 {
   font-size: 2em;
   margin-bottom: 0.67em;
+}
+h1 + hr {
+  margin-top: -0.67em;
 }
 h2 {
   font-size: 1.5em;
@@ -464,6 +506,16 @@ a {
   text-decoration: none;
   color: #336699;
 }
+hr {
+  border: 0;
+  height: 3px;
+  background-image: -webkit-linear-gradient(left, rgba(251, 250, 252, 0), #fbfafc, rgba(251, 250, 252, 0));
+  background-image: -moz-linear-gradient(left, rgba(251, 250, 252, 0), #fbfafc, rgba(251, 250, 252, 0));
+  background-image: -ms-linear-gradient(left, rgba(251, 250, 252, 0), #fbfafc, rgba(251, 250, 252, 0));
+  background-image: -o-linear-gradient(left, rgba(251, 250, 252, 0), #fbfafc, rgba(251, 250, 252, 0));
+  width: 35%;
+  margin-bottom: 1em;
+}
 strong,
 b {
   font-weight: bold;
@@ -486,6 +538,9 @@ ol ol {
 }
 .text-white {
   color: #fbfafc;
+}
+.lead {
+  font-size: 1.2em;
 }
 /* Mixins */
 /* Layout */
@@ -546,12 +601,37 @@ main section #full_width_background {
   height: 430px;
   padding-top: 160px;
 }
+main section h1 {
+  font-size: 2.938em;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
 main section a {
   color: #fbfafc;
 }
-main article {
-  min-height: 800px;
+main section aside {
+  display: none;
+}
+main section .lead {
+  margin-bottom: 60px;
+}
+main section .btn {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  padding: 6px 35px;
+  border-radius: 4px;
+}
+main #content-wrapper {
+  background-color: #fbfafc;
   position: relative;
   z-index: 1;
-  background-color: white;
+  width: 100%;
+  padding-top: 20px;
+}
+main #content-wrapper article {
+  width: 625px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 800px;
 }
