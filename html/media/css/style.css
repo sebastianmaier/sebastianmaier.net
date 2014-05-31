@@ -588,6 +588,52 @@ header #logo {
 header #logo #suffix {
   text-transform: lowercase;
 }
+header .logo-vertical {
+  position: fixed;
+  top: 0px;
+  left: 24px;
+  z-index: 10;
+  padding: 10px;
+  transition: all 0.5s ease-in 0s;
+  /* explorer 10 */
+  -webkit-transition: all 0.5s ease-in 0s;
+  /* chrome & safari */
+  -moz-transition: all 0.5s ease-in 0s;
+  /* firefox */
+  -o-transition: all 0.5s ease-in 0s;
+  /* opera */
+  background-color: #fbfafc;
+}
+header .logo-vertical-1 {
+  top: 15px;
+  left: 20px;
+  border-radius: 10px;
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+header .logo-vertical-2 {
+  top: 30px;
+  left: 14px;
+  border-radius: 5px;
+  -moz-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+header .logo-vertical-3 {
+  top: 62px;
+  left: 0px;
+  border-radius: 0px;
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 header nav,
 header ul {
   height: 100%;
@@ -601,6 +647,9 @@ header nav ul {
 header nav ul li {
   display: inline-block;
   height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
   transition: all 0.5s ease-in 0s;
   /* explorer 10 */
   -webkit-transition: all 0.5s ease-in 0s;
