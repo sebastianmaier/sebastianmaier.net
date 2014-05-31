@@ -1,6 +1,7 @@
 @import 'base.less';
 @import 'button.less';
 @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 /* typo */
 
@@ -64,6 +65,9 @@ img[align=left] {
 img[align=right] {
 
 }
+.background-white {
+  background-color: #fbfafc;
+}
 .text-blue {
   color: #336699;
 }
@@ -86,10 +90,16 @@ img[align=right] {
   background-image: -ms-linear-gradient(@direction, @color1, @color2, @color3);
   background-image: -o-linear-gradient(@direction, @color1, @color2, @color3);
 }
+.transition(@params: all 2s ease-in 0s) {
+  transition: @params; /* explorer 10 */
+  -webkit-transition: @params; /* chrome & safari */
+  -moz-transition: @params; /* firefox */
+  -o-transition: @params; /* opera */
+}
 
 /* Layout */
 header, main, footer { display: block; }
-#wrapper { width: 100%; min-width: 960px; background-color: #fbfafc;}
+#wrapper { width: 100%; min-width: 960px; .background-white();}
 
 header {
   position: relative;
@@ -120,10 +130,9 @@ header {
 
 
 main {
-  padding-top: 430px;
+  padding-top: 230px;
 	section {
     text-align: center;
-    height: 430px;
     position: fixed;
     top: 0px;
     z-index: 0;
@@ -166,8 +175,9 @@ main {
     position: relative;
     z-index: 1;
     width: 100%;
+    margin-top: 430px;
     padding-top: 40px;
-    margin-bottom: 40px;
+    //margin-bottom: 40px;
 
     article {
       width: 625px;
@@ -179,15 +189,49 @@ main {
   }
 }
 
-#footer {
+footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  z-index: 10;
+  border-top: 1px solid #336699;
+  padding: 5px;
+  text-align: center;
+  opacity: .5;
+  .background-white();
+  .transition(opacity .5s ease-in 0s);
+  font-size: 0.8em;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    li {
+      display: inline-block;
+    }
+  }
+}
+footer:hover {
+  opacity: 1;
+}
 
-	}
+
 
 @media screen and (orientation:portrait),
 screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1),
 screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2),
 screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2),
 screen and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait),
-screen and (max-width: 942px) {
+screen and (max-width: 625px) {
 
+  #wrapper { min-width: inherit; }
+  main {
+    #content-wrapper {
+      .box-sizing(border-box);
+      padding-left: 15px;
+      padding-right: 15px;
+      article {
+        width: 100%;
+      }
+    }
+  }
 }
