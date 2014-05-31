@@ -543,15 +543,27 @@ ol ol {
 .text-white {
   color: #fbfafc;
 }
+.text-black {
+  color: #333333;
+}
 .lead {
   font-size: 1.2em;
 }
 /* Mixins */
 /* Layout */
+html,
+body,
+main {
+  width: 100%;
+  height: 100%;
+}
 header,
 main,
 footer {
   display: block;
+}
+body {
+  position: relative;
 }
 #wrapper {
   width: 100%;
@@ -576,6 +588,10 @@ header #logo {
 header #logo #suffix {
   text-transform: lowercase;
 }
+header nav,
+header ul {
+  height: 100%;
+}
 header nav {
   float: right;
 }
@@ -584,6 +600,25 @@ header nav ul {
 }
 header nav ul li {
   display: inline-block;
+  height: 100%;
+  transition: all 0.5s ease-in 0s;
+  /* explorer 10 */
+  -webkit-transition: all 0.5s ease-in 0s;
+  /* chrome & safari */
+  -moz-transition: all 0.5s ease-in 0s;
+  /* firefox */
+  -o-transition: all 0.5s ease-in 0s;
+  /* opera */
+}
+header nav ul li a {
+  color: #333333;
+}
+header nav ul li:hover {
+  height: calc(76%);
+  border-bottom: 8px solid #336699;
+}
+header nav ul li:hover a {
+  color: #336699;
 }
 main {
   padding-top: 230px;
@@ -593,6 +628,7 @@ main section {
   position: fixed;
   top: 0px;
   z-index: 0;
+  height: 100%;
   width: 100%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -601,7 +637,7 @@ main section {
 }
 main section #full_width_background {
   width: 100%;
-  height: 430px;
+  height: 100%;
   padding-top: 160px;
 }
 main section h1 {
@@ -633,7 +669,7 @@ main #content-wrapper {
   position: relative;
   z-index: 1;
   width: 100%;
-  margin-top: 430px;
+  margin-top: 35%;
   padding-top: 40px;
 }
 main #content-wrapper article {
@@ -648,11 +684,15 @@ footer {
   bottom: 0px;
   width: 100%;
   z-index: 10;
+  text-align: center;
+  background-color: #fbfafc;
+  font-size: 0.8em;
+}
+footer ul {
   border-top: 1px solid #336699;
   padding: 5px;
-  text-align: center;
-  opacity: .5;
-  background-color: #fbfafc;
+  width: 100%;
+  opacity: .3;
   transition: opacity 0.5s ease-in 0s;
   /* explorer 10 */
   -webkit-transition: opacity 0.5s ease-in 0s;
@@ -661,17 +701,38 @@ footer {
   /* firefox */
   -o-transition: opacity 0.5s ease-in 0s;
   /* opera */
-  font-size: 0.8em;
-}
-footer ul {
   list-style-type: none;
   margin: 0;
 }
 footer ul li {
   display: inline-block;
 }
-footer:hover {
+footer ul li a {
+  color: #333333;
+  transition: color 0.5s ease-in 0s;
+  /* explorer 10 */
+  -webkit-transition: color 0.5s ease-in 0s;
+  /* chrome & safari */
+  -moz-transition: color 0.5s ease-in 0s;
+  /* firefox */
+  -o-transition: color 0.5s ease-in 0s;
+  /* opera */
+}
+footer ul li a:hover {
+  color: #336699;
+}
+footer:hover ul {
   opacity: 1;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 1.5em;
+  right: 1em;
+  font-size: 3em;
+  color: #336699;
+  z-index: 30;
+  display: none;
+  cursor: pointer;
 }
 @media screen and (orientation: portrait), screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1), screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2), screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2), screen and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait), screen and (max-width: 625px) {
   #wrapper {
