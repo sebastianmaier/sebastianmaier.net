@@ -1,2 +1,3 @@
 $(document).ready ->
-  $("#full_width_background").backstretch("media/images/background_tori.jpg", {centeredY: false})
+  image_url = $('#background_image').attr('src')
+  $("#full_width_background").backstretch(image_url, {centeredY: false})
