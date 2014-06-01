@@ -537,6 +537,9 @@ ol ol {
 .background-white {
   background-color: #fbfafc;
 }
+.background-blue {
+  background-color: #336699;
+}
 .text-blue {
   color: #336699;
 }
@@ -705,10 +708,39 @@ main section .lead {
   margin-bottom: 60px;
 }
 main section .btn {
+  position: relative;
   font-size: 1.3em;
   text-transform: uppercase;
   padding: 6px 35px;
   border-radius: 4px;
+}
+main section .btn .btn-background {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #336699;
+  z-index: -5;
+  transition: width 0.5s ease-in 0s;
+  /* explorer 10 */
+  -webkit-transition: width 0.5s ease-in 0s;
+  /* chrome & safari */
+  -moz-transition: width 0.5s ease-in 0s;
+  /* firefox */
+  -o-transition: width 0.5s ease-in 0s;
+  /* opera */
+}
+main section .btn .btn-background-top {
+  left: 0;
+}
+main section .btn .btn-background-bottom {
+  right: 0;
+}
+main section .btn:hover .btn-background-top {
+  width: 50%;
+}
+main section .btn:hover .btn-background-bottom {
+  width: 50%;
 }
 main section #background_image {
   display: none;
