@@ -1,3 +1,5 @@
+# @codekit-prepend "waypoints.coffee"
+
 $(document).ready ->
   image_url = $('#background_image').attr('src')
   $("#full_width_background").backstretch(image_url, {centeredY: false})
@@ -14,8 +16,17 @@ $(document).ready ->
     , 2000
     false
 
+  $(".slide_left, .slide_right").addClass('off')
+  $(".slide_left, .slide_right").waypoint (direction)->
+    $(this).toggleClass('off')
+  , { offset: '75%' }
+
+
+
 
   $(window).scroll ->
+
+    #console.log($(this).scrollTop() - ($(window).height() / 2))
     if $(this).scrollTop() > 100
       $(".scroll-to-top").fadeIn()
     else
