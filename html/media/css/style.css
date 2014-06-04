@@ -628,7 +628,7 @@ header .logo-vertical-2 {
   transform: rotate(60deg);
 }
 header .logo-vertical-3 {
-  top: 62px;
+  top: 59px;
   left: 0px;
   border-radius: 0px;
   -moz-transform: rotate(90deg);
@@ -737,10 +737,10 @@ main section .btn .btn-background-bottom {
   right: 0;
 }
 main section .btn:hover .btn-background-top {
-  width: 50%;
+  width: 51%;
 }
 main section .btn:hover .btn-background-bottom {
-  width: 50%;
+  width: 51%;
 }
 main section #triangle-down {
   width: 0;
@@ -766,6 +766,14 @@ main #content-wrapper article {
   margin-right: auto;
   min-height: 800px;
   position: relative;
+}
+main #content-wrapper article hr {
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(251, 250, 252, 0), #333333, rgba(251, 250, 252, 0));
+  background-image: -moz-linear-gradient(left, rgba(251, 250, 252, 0), #333333, rgba(251, 250, 252, 0));
+  background-image: -ms-linear-gradient(left, rgba(251, 250, 252, 0), #333333, rgba(251, 250, 252, 0));
+  background-image: -o-linear-gradient(left, rgba(251, 250, 252, 0), #333333, rgba(251, 250, 252, 0));
+  width: 35%;
 }
 main #content-wrapper article .slide_left {
   transition: all 0.5s ease-in 0s;
