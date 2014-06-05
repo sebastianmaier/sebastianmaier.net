@@ -742,13 +742,6 @@ main section .btn:hover .btn-background-top {
 main section .btn:hover .btn-background-bottom {
   width: 51%;
 }
-main section #triangle-down {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 100px solid red;
-}
 main section #background_image {
   display: none;
 }
@@ -784,12 +777,9 @@ main #content-wrapper article .slide_left {
   /* firefox */
   -o-transition: all 0.5s ease-in 0s;
   /* opera */
-  position: relative;
-  left: 0;
 }
 main #content-wrapper article .slide_left.off {
-  left: -50%;
-  opacity: 0;
+  opacity: .4;
 }
 main #content-wrapper article .slide_right {
   transition: all 0.5s ease-in 0s;
@@ -800,12 +790,12 @@ main #content-wrapper article .slide_right {
   /* firefox */
   -o-transition: all 0.5s ease-in 0s;
   /* opera */
-  position: relative;
-  right: 0;
 }
 main #content-wrapper article .slide_right.off {
-  right: -50%;
-  opacity: 0;
+  opacity: .4;
+}
+main #content-wrapper.content_page {
+  margin-top: inherit;
 }
 footer {
   position: fixed;

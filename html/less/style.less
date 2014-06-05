@@ -257,13 +257,6 @@ main {
       }
 
     }
-    #triangle-down {
-    	width: 0;
-    	height: 0;
-    	border-left: 50px solid transparent;
-    	border-right: 50px solid transparent;
-    	border-top: 100px solid red;
-    }
     #background_image{
       display: none;
     }
@@ -291,23 +284,20 @@ main {
 
       .slide_left {
         .transition(all .5s ease-in 0s);
-        position: relative;
-        left: 0;
       }
       .slide_left.off {
-        left: -50%;
-        opacity: 0;
+        opacity: .4;
       }
       .slide_right {
         .transition(all .5s ease-in 0s);
-        position: relative;
-        right: 0;
       }
       .slide_right.off {
-        right: -50%;
-        opacity: 0;
+        opacity: .4;
       }
     }
+  }
+  #content-wrapper.content_page {
+    margin-top: inherit;
   }
 }
 
