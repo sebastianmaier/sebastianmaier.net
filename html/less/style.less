@@ -113,10 +113,10 @@ img[align=right] {
 
 
 /* Layout */
-html, body, main { width: 100%; height: 100%;}
+html, body, main, #wrapper { width: 100%; height: 100%;}
 header, main, footer { display: block; }
 body { position: relative; }
-#wrapper { width: 100%; min-width: 960px; .background-white();}
+#wrapper { min-width: 960px; .background-white();}
 
 header {
   position: relative;
@@ -191,6 +191,24 @@ header {
 	}
 }
 
+aside {
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  padding-top: 10px;
+  ul {
+    list-style-type: none;
+    text-align: right;
+    margin-right: 55px;
+    li {
+      a {
+        .text-blue();
+        font-size: 2em;
+        line-height: 1.5em;
+      }
+    }
+  }
+}
 
 main {
   padding-top: 230px;
@@ -217,9 +235,6 @@ main {
     }
     a {
       .text-white();
-    }
-    aside {
-      display: none; //just for now, add this later.
     }
     .lead  {
       margin-bottom: 60px;
@@ -266,6 +281,7 @@ main {
     position: relative;
     z-index: 1;
     width: 100%;
+    min-height: 100%;
     margin-top: 35%;
     padding-top: 40px;
     //margin-bottom: 40px;
@@ -274,7 +290,6 @@ main {
       width: 625px;
       margin-left: auto;
       margin-right: auto;
-      min-height: 800px;
       position: relative;
       hr {
         height: 1px;
