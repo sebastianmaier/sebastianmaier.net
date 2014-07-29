@@ -2,8 +2,13 @@
 
 $(document).ready ->
 
+  loadMobileNavi = ->
+    $('#mobile_navi_button').click (e) ->
+      e.preventDefault()
+      $('#wrapper').toggleClass('on')
+
   loadBackground = ->
-    image_url = $('#background_image').attr('src')
+    image_url = $('#bg-image img').attr('src')
     $("#full_width_background").backstretch(image_url, {centeredY: false})
 
   loadScrollAnim = ->
@@ -32,25 +37,27 @@ $(document).ready ->
         $(".scroll-to-top").fadeIn()
       else
         $(".scroll-to-top").fadeOut()
-      if $(this).scrollTop() > 5
-        $('#logo').addClass('logo-vertical')
-      else
-        $('#logo').removeClass('logo-vertical')
-      if $(this).scrollTop() > 15
-        $('#logo').addClass('logo-vertical-1')
-      else
-        $('#logo').removeClass('logo-vertical-1')
-      if $(this).scrollTop() > 30
-        $('#logo').addClass('logo-vertical-2')
-      else
-        $('#logo').removeClass('logo-vertical-2')
-      if $(this).scrollTop() > 50
-        $('#logo').addClass('logo-vertical-3')
-      else
-        $('#logo').removeClass('logo-vertical-3')
-      return
+      if window.innerWidth > 942
+        if $(this).scrollTop() > 5
+          $('#logo').addClass('logo-vertical')
+        else
+          $('#logo').removeClass('logo-vertical')
+        if $(this).scrollTop() > 15
+          $('#logo').addClass('logo-vertical-1')
+        else
+          $('#logo').removeClass('logo-vertical-1')
+        if $(this).scrollTop() > 30
+          $('#logo').addClass('logo-vertical-2')
+        else
+          $('#logo').removeClass('logo-vertical-2')
+        if $(this).scrollTop() > 50
+          $('#logo').addClass('logo-vertical-3')
+        else
+          $('#logo').removeClass('logo-vertical-3')
+        return
 
   loadBackground()
+  loadMobileNavi()
 
   if $('[data-mercury]').length == 0
     loadScrollAnim()

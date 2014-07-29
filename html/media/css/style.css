@@ -591,6 +591,9 @@ header #logo {
 header #logo #suffix {
   text-transform: lowercase;
 }
+header #mobile_navi_button {
+  display: none;
+}
 header .logo-vertical {
   position: fixed;
   top: 0px;
@@ -755,9 +758,6 @@ main section .btn:hover .btn-background-top {
 main section .btn:hover .btn-background-bottom {
   width: 51%;
 }
-main section #background_image {
-  display: none;
-}
 main #content-wrapper {
   background-color: #fbfafc;
   position: relative;
@@ -772,6 +772,7 @@ main #content-wrapper article {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  padding-bottom: 20px;
 }
 main #content-wrapper article hr {
   height: 1px;
@@ -866,9 +867,63 @@ footer:hover ul {
   display: none;
   cursor: pointer;
 }
+#bg-image {
+  display: none;
+}
 @media screen and (orientation: portrait), screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1), screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2), screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2), screen and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait), screen and (max-width: 625px) {
   #wrapper {
     min-width: inherit;
+    position: relative;
+    left: 0px;
+    transition: left 0.5s ease-in 0s;
+    /* explorer 10 */
+    -webkit-transition: left 0.5s ease-in 0s;
+    /* chrome & safari */
+    -moz-transition: left 0.5s ease-in 0s;
+    /* firefox */
+    -o-transition: left 0.5s ease-in 0s;
+    /* opera */
+  }
+  #wrapper.on {
+    transition: left 0.5s ease-in 0s;
+    /* explorer 10 */
+    -webkit-transition: left 0.5s ease-in 0s;
+    /* chrome & safari */
+    -moz-transition: left 0.5s ease-in 0s;
+    /* firefox */
+    -o-transition: left 0.5s ease-in 0s;
+    /* opera */
+    left: -120px;
+  }
+  #wrapper.on #mainnavi {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -112px;
+  }
+  #wrapper.on #mainnavi ul li {
+    display: block;
+    border: 0px;
+    padding-top: 30px;
+    border-bottom: 1px solid #336699;
+    text-align: right !important;
+  }
+  #wrapper.on #mainnavi ul li:hover {
+    height: 100%;
+  }
+  header {
+    position: fixed;
+    width: 100%;
+  }
+  header #mainnavi {
+    display: none;
+  }
+  header #mobile_navi_button {
+    display: block;
+    text-align: right;
+  }
+  main {
+    padding-top: 270px;
   }
   main #content-wrapper {
     -moz-box-sizing: border-box;

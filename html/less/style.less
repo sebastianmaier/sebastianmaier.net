@@ -134,6 +134,9 @@ header {
       text-transform: lowercase;
     }
 	}
+  #mobile_navi_button {
+    display: none;
+  }
   .logo-vertical {
     position: fixed;
     top: 0px;
@@ -272,9 +275,6 @@ main {
       }
 
     }
-    #background_image{
-      display: none;
-    }
 	}
   #content-wrapper {
     background-color: #fbfafc;
@@ -291,6 +291,7 @@ main {
       margin-left: auto;
       margin-right: auto;
       position: relative;
+      padding-bottom: 20px;
       hr {
         height: 1px;
         .background-gradient(left, rgba(251,250,252,0), #333333, rgba(251,250,252,0));
@@ -362,6 +363,10 @@ footer:hover {
   cursor: pointer;
 }
 
+#bg-image{
+  display: none;
+}
+
 
 @media screen and (orientation:portrait),
 screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1),
@@ -370,8 +375,48 @@ screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-
 screen and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait),
 screen and (max-width: 625px) {
 
-  #wrapper { min-width: inherit; }
+  #wrapper {
+    min-width: inherit;
+    position: relative;
+    left: 0px;
+    .transition(left .5s ease-in 0s);
+  }
+  #wrapper.on {
+    .transition(left .5s ease-in 0s);
+    left: -120px;
+    #mainnavi {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -112px;
+      ul {
+        li {
+          display: block;
+          border: 0px;
+          padding-top: 30px;
+          border-bottom: 1px solid #336699;
+          text-align: right !important;
+        }
+        li:hover {
+          height: 100%;
+        }
+      }
+    }
+  }
+  header {
+    position: fixed;
+    width: 100%;
+    #mainnavi {
+      display: none;
+    }
+    #mobile_navi_button {
+      display: block;
+      text-align: right;
+    }
+
+  }
   main {
+    padding-top: 270px;
     #content-wrapper {
       .box-sizing(border-box);
       padding-left: 15px;
