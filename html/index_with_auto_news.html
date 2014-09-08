@@ -27,7 +27,7 @@
         </div>
 
         <div id="mobile_navi_button"><i class="fa fa-bars"></i></div>
-      	<nav role="navigation" id="mainnavi" data-scope="folder" data-mercury="extra" data-extra="html-list" data-extra-name="Navigation">
+        <nav role="navigation" id="mainnavi" data-scope="folder" data-mercury="extra" data-extra="html-list" data-extra-name="Navigation">
           <ul>
             <li><a href="#">my thoughts</a></li>
             <li><a href="#">what I did</a></li>
@@ -56,23 +56,24 @@
                 <hr>
               </div>
             </article>
-            <article>
-                <div class="slide_left">
-                <h2>Grumpy wizards make toxic brew for the evil Queen and Jack.</h2>
-                <p>One morning, when GREGOR Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
-                <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
-                <hr />
+          <!-- The ID: "53bb067381b59a50900003d8" in the following line has to be changed to a real smooster folder ID   -->
+           {% for page in site.folders.1234567381b59a50900003d8.pages.order_by_date_desc limit:5 offset:0 %}
+            <article id="article_per_page_n_{{forloop.index}}">
+              <h1><a href="{{page.url}}" data-id="{{page.id}}">{{page.content_elements.headline}}</a></h1>
+              <p class="date">{{page.content_elements.author_and_date}}</p>
+              <div class="text">
+                          {{page.content_elements.article_teaser}}
               </div>
-              <div class="slide_right">
-                <h2>Grumpy wizards make toxic brew for the evil Queen and Jack.</h2>
-                <p>One morning, when GREGOR Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
-                <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
-                <hr />
+              <div class="blog-article">
+                <a href="{{page.url}}" data-id="{{page.id}}">Read more</a>
               </div>
+              <hr>
             </article>
+            {% endfor %}
+
             </div>
       </main>
-      <footer role="contentinfo">
+     <footer role="contentinfo">
         <ul>
           <li><a href="http://www.smooster.com">hosted and managed by smooster with <i class="fa fa-smile-o"></i></a></li>
           <li><a href="#">imprint</a></li>
@@ -80,23 +81,50 @@
         </ul>
       </footer>
 
+  </div>
   <div class="scroll-to-top">
     <i class="fa fa-angle-double-up"></i>
   </div>
 
   <div id="bg-image" data-mercury="extra" data-extra="execute_script" data-extra-name="Hintergrund (desktop)" data-extra-action="change_image_desktop">
       <p data-extra-editable="true">
-		<img src="media/images/background_tori.jpg" id="background_image" alt="Tori in Japan"></p>
+    <img src="media/images/background_tori.jpg" id="background_image" alt="Tori in Japan"></p>
   </div>
 
   <script src="http://code.smooster.com/libs/jquery/1.9.1/jquery.js" type="text/javascript"></script>
   <script src="http://code.smooster.com/libs/jquery.nivo.lightbox/1.0/nivo-lightbox.min.js" type="text/javascript"></script>
   <script src="http://code.smooster.com/libs/jquery.nivo.lightbox/1.0/nivo-lightbox.start.js" type="text/javascript"></script>
   <script src="http://code.smooster.com/libs/jquery.backstretch/2.0.4/jquery.backstretch.min.js" type="text/javascript"></script>
+
+  <!-- BEGIN: smooster blog ajax reload button -->
+  <script src="http://code.smooster.com/libs/smo-jquery-api/0.1.1/smooster.js" type="text/javascript" ></script>
+  <script src="media/js/blog_more.js" type="text/javascript" ></script>
+  {% raw %}
+  <!-- The ID: "53aae2eed27e804da30000fa" in the following line has to be changed to a real smooster folder ID, to the blog folder   -->
+  <script type="text/x-jsrender" id="news_template" data-a-id="53aae2eed27e804da30000fa">
+          <article id="article_per_page_n_{{id}}">
+            <h1><a href="{{url}}" data-id="{{id}}">{{& headline}}</a></h1>
+						<p class="date">{{& date}}</p>
+			    		<div class="picture">
+			    			{{& picture}}
+						</div>
+		    		<div class="text">
+                        {{& teaser}}
+	    			</div>
+	    			<div class="blog-article">
+	    				<a href="{{url}}" data-id="{{id}}">Read more</a>
+	    			</div>
+	    			<div class="press-border">
+	    			</div>
+          </article>
+	</script>
+  {% endraw %}
+  <!-- END: smooster blog ajax reload button -->
+
   <script src="media/js/functions.min.js" type="text/javascript" ></script>
   <script type="text/javascript" data-smo-only="admin">
 
-     	this.SmoosterExtra || (this.SmoosterExtra = {});
+       this.SmoosterExtra || (this.SmoosterExtra = {});
 
         jQuery.extend(this.SmoosterExtra, {
           version: '0.1.0',
@@ -104,7 +132,7 @@
           change_image_desktop: function() {
             $('#bg-image').css('display', 'block');
             Mercury.region.getSelection().selectNode($('img', Mercury.region.element).first().get(0))
-        	Mercury.trigger('button', {action: 'insertMedia'})
+          Mercury.trigger('button', {action: 'insertMedia'})
             Mercury.on('image_inserted', function(){
               $('#bg-image').css('display', 'none');
               $("#full_width_background").backstretch($('#bg-image img').attr('src'), {centeredY: false})
